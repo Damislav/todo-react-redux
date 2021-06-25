@@ -1,0 +1,17 @@
+header {
+  background: grey;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+}
+
+@media screen and(max-width:1200) {
+}

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../actions/todoAction";
-import { bindActionCreators } from "redux";
 import {
   addTodo,
   removeTodo,
   editTodo,
   updateTodo,
   cancelEdit,
+  toggleCheckbox,
 } from "../actions/todoAction";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
@@ -35,6 +34,7 @@ class TodoList extends Component {
       const addedTodo = {
         title: this.state.newTodo,
         editing: false,
+        checkbox: false,
       };
 
       this.props.addTodo(addedTodo);
@@ -62,6 +62,12 @@ class TodoList extends Component {
   cancel(i) {
     this.props.cancelEdit(i);
   }
+  handleCheckbox = (i) => {
+    console.log(i);
+    console.log(this.props.todos[i]);
+    this.props.toggleCheckbox(i);
+  };
+
   render() {
     const { todos } = this.props;
 
@@ -70,6 +76,9 @@ class TodoList extends Component {
         {todos.map((todo, i) => {
           return (
             <Todo
+              id={i}
+              handleCheckbox={() => this.handleCheckbox(i)}
+              isChecked={todo.checkbox}
               currentVal={this.state.currentVal}
               key={i}
               updatedVal={this.updatedVal}
@@ -91,10 +100,6 @@ class TodoList extends Component {
   }
 }
 
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
-}
-
 const mapStateToProps = (state) => {
   return state.todos;
 };
@@ -105,4 +110,5 @@ export default connect(mapStateToProps, {
   editTodo,
   updateTodo,
   cancelEdit,
+  toggleCheckbox,
 })(TodoList);

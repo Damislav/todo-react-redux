@@ -3,6 +3,7 @@ import {
   CANCEL_EDIT,
   DELETE_TODO,
   EDIT_TODO,
+  TOGGLE_CHECKBOX,
   UPDATE_TODO,
 } from "./types";
 
@@ -39,5 +40,12 @@ export const cancelEdit = (index) => {
   return {
     type: CANCEL_EDIT,
     index,
+  };
+};
+
+export const toggleCheckbox = (index) => {
+  return {
+    type: TOGGLE_CHECKBOX,
+    payload: index,
   };
 };

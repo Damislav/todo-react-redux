@@ -87,6 +87,9 @@ ul > form input[type="submit"] {
   align-items: center;
 }
 
+.checked {
+  text-decoration: line-through;
+}
 @media screen and (max-width: 300px) {
   .form {
     display: flex;

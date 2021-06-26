@@ -1,12 +1,22 @@
 import React from "react";
 import { Fragment } from "react";
+
 const Todo = (props) => {
   return (
     <div>
       <Fragment key={props.todo.title}>
         {!props.todo.editing ? (
           <li>
-            {props.todo.title}
+            <input
+              onChange={props.handleCheckbox}
+              style={{ cursor: "pointer" }}
+              checked={props.isChecked}
+              type="checkbox"
+            />
+            <span className={props.isChecked ? "checked" : null}>
+              {" "}
+              {props.todo.title}
+            </span>
             <span>
               <button onClick={props.remove}>Delete</button>
               <button onClick={props.edit}>Edit</button>

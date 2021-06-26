@@ -3,17 +3,12 @@ import {
   CANCEL_EDIT,
   DELETE_TODO,
   EDIT_TODO,
+  TOGGLE_CHECKBOX,
   UPDATE_TODO,
 } from "../actions/types";
+import todos from "../data";
 
-const initialState = {
-  todos: [
-    { title: "I love redux", editing: false },
-    { title: "The redux song", editing: false },
-    { title: "Run to the redux hill", editing: false },
-  ],
-};
-export const todoReducers = (state = initialState, action) => {
+export const todoReducers = (state = { todos }, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -45,7 +40,12 @@ export const todoReducers = (state = initialState, action) => {
           i === action.index ? { ...todo, editing: false } : todo
         ),
       };
-
+    case TOGGLE_CHECKBOX:
+      return {
+        todos: state.todos.map((todo, i) =>
+          i === action.payload ? { ...todo, checkbox: !todo.checkbox } : todo
+        ),
+      };
     default: {
       return state;
     }

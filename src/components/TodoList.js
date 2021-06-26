@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actionCreators from "../actions/todoAction";
+import { bindActionCreators } from "redux";
 import {
   addTodo,
   removeTodo,
@@ -7,7 +9,6 @@ import {
   updateTodo,
   cancelEdit,
 } from "../actions/todoAction";
-
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
@@ -67,6 +68,7 @@ class TodoList extends Component {
         {todos.map((todo, i) => {
           return (
             <Todo
+              key={i}
               updatedVal={this.updatedVal}
               update={() => this.update(i)}
               cancel={() => this.cancel(i)}
@@ -85,6 +87,11 @@ class TodoList extends Component {
     );
   }
 }
+
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
 const mapStateToProps = (state) => {
   return state.todos;
 };

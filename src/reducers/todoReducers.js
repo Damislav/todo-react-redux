@@ -13,7 +13,7 @@ const initialState = {
     { title: "Run to the redux hill", editing: false },
   ],
 };
-export default function (state = initialState, action) {
+export const todoReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -50,4 +50,4 @@ export default function (state = initialState, action) {
       return state;
     }
   }
-}
+};

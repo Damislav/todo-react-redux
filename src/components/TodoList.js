@@ -17,6 +17,7 @@ class TodoList extends Component {
     super(props);
     this.state = {
       newTodo: "",
+      currentVal: "",
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -55,6 +56,7 @@ class TodoList extends Component {
   }
   update(i) {
     this.props.updateTodo(this.state.currentVal, i);
+
     this.setState({ currentVal: "" });
   }
   cancel(i) {
@@ -68,6 +70,7 @@ class TodoList extends Component {
         {todos.map((todo, i) => {
           return (
             <Todo
+              currentVal={this.state.currentVal}
               key={i}
               updatedVal={this.updatedVal}
               update={() => this.update(i)}

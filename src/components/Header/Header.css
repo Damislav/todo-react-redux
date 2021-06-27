@@ -1,0 +1,20 @@
+.dark-button,
+.white-button {
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 110px;
+}
+
+.dropdown-menu {
+  border: none;
+
+  background: none;
+}
+
+.dark-mode {
+  background: black;
+  color: #f8f9fa !important;
+}
+.white-mode {
+  background-color: #f8f9fa !important;
+}

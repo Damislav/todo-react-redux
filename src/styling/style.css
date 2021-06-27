@@ -1,0 +1,153 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+ul li {
+  padding: 5px;
+  margin-bottom: 10px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+ul li button {
+  border: 2px solid #ddd;
+  background: #ddd;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+ul > form {
+  margin-top: 50px;
+}
+
+ul > form input[type="text"] {
+  height: 24px;
+  padding: 4px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+ul > form input[type="submit"] {
+  padding: 8px;
+  border: none;
+  background: #333;
+  color: #ddd;
+  font-size: 0.8rem;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  margin: 2rem;
+}
+
+.todo-wrapper {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-button {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.add-button {
+  color: white;
+  background: #250606;
+  outline: navajowhite;
+  border: none;
+  padding: 0.3rem;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.Header {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 320px) {
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .add-button {
+    margin-top: 0.5rem;
+  }
+  ul li span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 50%;
+    line-height: 1;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+  }
+  ul li span button {
+    margin: 0.2rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

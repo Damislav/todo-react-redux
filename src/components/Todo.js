@@ -14,7 +14,6 @@ const Todo = (props) => {
               type="checkbox"
             />
             <span className={props.isChecked ? "checked" : null}>
-              {" "}
               {props.todo.title}
             </span>
             <span>

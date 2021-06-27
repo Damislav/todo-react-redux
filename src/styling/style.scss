@@ -54,6 +54,7 @@ ul > form input[type="submit"] {
 .title {
   display: block;
   text-align: center;
+  margin: 2rem;
 }
 .todo-wrapper {
   list-style: none;
@@ -90,7 +91,11 @@ ul > form input[type="submit"] {
 .checked {
   text-decoration: line-through;
 }
-@media screen and (max-width: 300px) {
+.Header {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 320px) {
   .form {
     display: flex;
     flex-direction: column;
@@ -102,6 +107,10 @@ ul > form input[type="submit"] {
   ul li span {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    line-height: 1;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
   }
   ul li span button {
     margin: 0.2rem;

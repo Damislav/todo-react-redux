@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+
 import {
   addTodo,
   removeTodo,
@@ -8,6 +10,7 @@ import {
   cancelEdit,
   toggleCheckbox,
 } from "../actions/todoAction";
+
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
@@ -35,6 +38,7 @@ class TodoList extends Component {
         title: this.state.newTodo,
         editing: false,
         checkbox: false,
+        id: uuidv4(),
       };
 
       this.props.addTodo(addedTodo);
@@ -47,8 +51,8 @@ class TodoList extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  remove(i) {
-    this.props.removeTodo(i);
+  remove(id) {
+    this.props.removeTodo(id);
   }
   edit(i, title) {
     this.props.editTodo(i);
@@ -63,30 +67,39 @@ class TodoList extends Component {
     this.props.cancelEdit(i);
   }
   handleCheckbox = (i) => {
-    console.log(i);
-    console.log(this.props.todos[i]);
+    // console.log(i);
+    // console.log(this.props.todos[i]);
     this.props.toggleCheckbox(i);
   };
 
   render() {
+    //destructure from redux  state
     const { todos } = this.props;
+    const { searchField } = this.props;
+    // ¸end of destruct
+
+    //  search todos search
+    const filteredTodos = todos.filter((todo) => {
+      return todo.title.toLowerCase().includes(searchField.toLowerCase());
+    });
+    // ¸end of search todos search
 
     return (
       <ul className="todo-wrapper">
-        {todos.map((todo, i) => {
+        {filteredTodos.map((todo, i) => {
           return (
             <Todo
+              todo={todo}
               id={i}
-              handleCheckbox={() => this.handleCheckbox(i)}
               isChecked={todo.checkbox}
               currentVal={this.state.currentVal}
               key={i}
               updatedVal={this.updatedVal}
-              update={() => this.update(i)}
-              cancel={() => this.cancel(i)}
-              todo={todo}
-              remove={() => this.remove(i)}
-              edit={() => this.edit(i, todo.title)}
+              handleCheckbox={() => this.handleCheckbox(todo.id)}
+              update={() => this.update(todo.id)}
+              cancel={() => this.cancel(todo.id)}
+              remove={() => this.remove(todo.id)}
+              edit={() => this.edit(todo.id, todo.title)}
             />
           );
         })}
@@ -100,15 +113,22 @@ class TodoList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state.todos;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addTodo: (todoId) => dispatch(addTodo(todoId)),
+    removeTodo: (todoId) => dispatch(removeTodo(todoId)),
+    editTodo: (index) => dispatch(editTodo(index)),
+    updateTodo: (title, index) => dispatch(updateTodo(title, index)),
+    cancelEdit: (index) => dispatch(cancelEdit(index)),
+    toggleCheckbox: (index) => dispatch(toggleCheckbox(index)),
+  };
+};
+// const dispatchToProps = () => {};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...state.todos,
+    ...state.searchField,
+  };
 };
 
-export default connect(mapStateToProps, {
-  addTodo,
-  removeTodo,
-  editTodo,
-  updateTodo,
-  cancelEdit,
-  toggleCheckbox,
-})(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

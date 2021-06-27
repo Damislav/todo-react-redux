@@ -1,6 +1,7 @@
 import {
   ADD_TODO,
   CANCEL_EDIT,
+  CHANGE_SEARCHFIELD,
   DELETE_TODO,
   EDIT_TODO,
   TOGGLE_CHECKBOX,
@@ -47,5 +48,12 @@ export const toggleCheckbox = (index) => {
   return {
     type: TOGGLE_CHECKBOX,
     payload: index,
+  };
+};
+
+export const setSearchField = (text) => {
+  return {
+    type: CHANGE_SEARCHFIELD,
+    payload: text,
   };
 };

@@ -6,11 +6,11 @@ import App from "./App";
 
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import allReducers from "./reducers";
+import rootReducers from "./reducers";
 
 // ¸END OF REDUX
 const store = createStore(
-  allReducers,
+  rootReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

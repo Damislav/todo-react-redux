@@ -10,6 +10,7 @@ const TodoForm = (props) => {
           name="newTodo"
           value={props.newTodo}
           onChange={props.onChange}
+          placeholder="Enter your todo..."
         />
         <input className="add-button" type="submit" value="Add Todo" />
       </form>

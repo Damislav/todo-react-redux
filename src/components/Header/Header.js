@@ -13,7 +13,6 @@ import { setSearchField } from "../../actions/todoAction";
 
 class Header extends React.Component {
   render() {
-
     return (
       <>
         <Navbar expand="lg">
@@ -23,8 +22,8 @@ class Header extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <div style={{ flex: "3" }}>
                 <Nav className="ml-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#link">Link</Nav.Link>
+                  <Nav.Link>Home</Nav.Link>
+                  <Nav.Link>Link</Nav.Link>
                   <NavDropdown
                     className="nav-dropdown "
                     title="Change Theme"

@@ -8,10 +8,6 @@ import Header from "./components/Header/Header";
 
 // end of components----
 
-// styles
-
-// ¸end of styles
-
 class App extends React.Component {
   render() {
     return (
@@ -20,7 +16,7 @@ class App extends React.Component {
           <Header />
         </div>
         <h1 className="title">TODO with react and redux</h1>
-        <TodoList />{" "}
+        <TodoList />
       </>
     );
   }

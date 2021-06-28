@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
-import { searchReducer } from "./searchReducer";
-
 import { todoReducers } from "./todoReducers";
+import { searchReducer } from "./searchReducer";
 
 const rootReducers = combineReducers({
   todos: todoReducers,

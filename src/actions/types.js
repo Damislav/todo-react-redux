@@ -1,7 +1,15 @@
+// TODOS
+
 export const ADD_TODO = "ADD_TODO ";
 export const DELETE_TODO = "DELETE_TODO";
 export const EDIT_TODO = "EDIT_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const CANCEL_EDIT = "CANCEL_EDIT";
 export const TOGGLE_CHECKBOX = "TOGGLE_CHECKBOX";
+// END OF TODOS
+
+// -----SEARCHFIELD
+
 export const CHANGE_SEARCHFIELD = "CHANGE_SEARCHFIELD";
+
+// ----END OF SEARCHFIELD
